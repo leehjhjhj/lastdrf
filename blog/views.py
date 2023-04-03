@@ -16,8 +16,8 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 class BlogList(ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
-	#authentication_classes = [BasicAuthentication, SessionAuthentication]
-    authentication_classes = [JWTAuthentication]
+	authentication_classes = [BasicAuthentication, SessionAuthentication]
+    #authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly]
 		
     def perform_create(self, serializer):
@@ -32,5 +32,5 @@ from django.shortcuts import get_object_or_404
 class BlogDetail(RetrieveUpdateDestroyAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
-	#authentication_classes = [BasicAuthentication, SessionAuthentication]
-    authentication_classes = [JWTAuthentication]
+	authentication_classes = [BasicAuthentication, SessionAuthentication]
+    #authentication_classes = [JWTAuthentication]
