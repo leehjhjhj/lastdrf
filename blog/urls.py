@@ -4,6 +4,7 @@ from .views import *
 app_name = 'blog'
 
 urlpatterns = [
-    path('', BlogList.as_view()),
-    path('<int:pk>/', BlogDetail.as_view()),
+    path('guestbook/', GuestBookListcreate.as_view()),
+    path('guestbook/<int:pk>/', GuestBookDetail.as_view()),
+
 ]

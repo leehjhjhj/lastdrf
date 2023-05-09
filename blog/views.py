@@ -1,17 +1,16 @@
-from .models import Blog
-from .serializers import BlogSerializer
-from rest_framework.decorators import api_view, authentication_classes,permission_classes
-from rest_framework.response import Response
-from rest_framework import status
+from .models import Blog, GuestBook
+from .serializers import BlogSerializer, GuestBookSerializer
+
+
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
 
 # ...
-from rest_framework.views import APIView
 from rest_framework.generics import ListCreateAPIView
-from rest_framework_simplejwt.authentication import JWTAuthentication
 # ...
+
+
 
 class BlogList(ListCreateAPIView):
     queryset = Blog.objects.all()
@@ -34,3 +33,11 @@ class BlogDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = BlogSerializer
     authentication_classes = [BasicAuthentication, SessionAuthentication]
     #authentication_classes = [JWTAuthentication]
+
+class GuestBookListcreate(ListCreateAPIView):
+    queryset = GuestBook.objects.all()
+    serializer_class = GuestBookSerializer
+
+class GuestBookDetail(RetrieveUpdateDestroyAPIView):
+    queryset = GuestBook.objects.all()
+    serializer_class = GuestBookSerializer

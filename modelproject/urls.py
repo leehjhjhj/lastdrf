@@ -11,6 +11,9 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('dj/', include('dj_rest_auth.urls')),
     path('dj/registration/', include('dj_rest_auth.registration.urls')),
+    path('guestbook/', GuestBookListcreate.as_view()),
+    path('guestbook/<int:pk>/', GuestBookDetail.as_view()),
+
 ]
 
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

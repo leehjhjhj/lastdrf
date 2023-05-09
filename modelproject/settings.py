@@ -25,16 +25,16 @@ SECRET_KEY = 'django-insecure-%653do4tbw+8!)-svos%==w-k!kye-e2z4s0b4e(j-d2f@i_7n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['port-0-lastdrf-3sep9829lg0qkxfl.sel3.cloudtype.app', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Application definition
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        #'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
-
+PPEND_SLASH=False
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
